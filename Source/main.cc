@@ -31,11 +31,27 @@ extern "C"
 }
 
 #include <QApplication>
+#include <iostream>
+
+#include "joker.h"
 
 int main(int argc, char *argv[])
 {
-  QApplication application(argc, argv);
   int rc = EXIT_SUCCESS;
+
+  try
+    {
+      QApplication application(argc, argv);
+      joker j;
+
+      j.show();
+      rc = application.exec();
+    }
+  catch(const std::bad_alloc &exception)
+    {
+      Q_UNUSED(exception);
+      std::cerr << "Memory exception!" << std::endl;
+    }
 
   return rc;
 }
