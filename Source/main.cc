@@ -25,12 +25,17 @@
 ** JOKER, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "joker_card.h"
-
-joker_card::joker_card(void)
+extern "C"
 {
+#include <stdlib.h>
 }
 
-joker_card::~joker_card()
+#include <QApplication>
+
+int main(int argc, char *argv[])
 {
+  QApplication application(argc, argv);
+  int rc = EXIT_SUCCESS;
+
+  return rc;
 }

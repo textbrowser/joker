@@ -34,7 +34,8 @@ UI_HEADERS_DIR  = Include
 
 HEADERS		=
 
-SOURCES		= Source/joker_card.cc
+SOURCES		= Source/joker_card.cc \
+                  Source/main.cc
 
 TRANSLATIONS    =
 
