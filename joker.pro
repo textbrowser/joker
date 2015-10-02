@@ -28,14 +28,15 @@ OBJECTS_DIR = temp/obj
 RCC_DIR = temp/rcc
 UI_DIR = temp/ui
 
-FORMS           = UI/joker.ui
+FORMS           = UI\\joker.ui
 
 UI_HEADERS_DIR  = Include
 
-HEADERS		=
+HEADERS		= Include\\joker.h
 
-SOURCES		= Source/joker_card.cc \
-                  Source/main.cc
+SOURCES		= Source\\joker.cc \
+                  Source\\joker_card.cc \
+                  Source\\main.cc
 
 TRANSLATIONS    =
 
