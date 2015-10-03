@@ -37,7 +37,7 @@ extern "C"
 
 int main(int argc, char *argv[])
 {
-  int rc = EXIT_SUCCESS;
+  int rc = EXIT_FAILURE;
 
   try
     {
@@ -51,6 +51,9 @@ int main(int argc, char *argv[])
     {
       Q_UNUSED(exception);
       std::cerr << "Memory exception!" << std::endl;
+    }
+  catch(...)
+    {
     }
 
   return rc;

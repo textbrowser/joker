@@ -29,7 +29,16 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <addaction name="action_New_Diagram"/>
+    <widget class="QMenu" name="menu_New_Game">
+     <property name="title">
+      <string>&amp;New Game</string>
+     </property>
+     <addaction name="actionJumping_Jacks"/>
+     <addaction name="actionQueen_s_Shuffle"/>
+     <addaction name="actionKing_s_Question"/>
+     <addaction name="actionJoker_s_Dilemma"/>
+    </widget>
+    <addaction name="menu_New_Game"/>
     <addaction name="separator"/>
     <addaction name="action_Quit"/>
    </widget>
@@ -47,14 +56,6 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <action name="action_New_Diagram">
-   <property name="text">
-    <string>&amp;New Game</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+N</string>
-   </property>
-  </action>
   <action name="action_Open_Diagram">
    <property name="text">
     <string>&amp;Open Diagram</string>
@@ -69,6 +70,26 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionJumping_Jacks">
+   <property name="text">
+    <string>Jumping Jacks</string>
+   </property>
+  </action>
+  <action name="actionQueen_s_Shuffle">
+   <property name="text">
+    <string>Queen's Shuffle</string>
+   </property>
+  </action>
+  <action name="actionKing_s_Question">
+   <property name="text">
+    <string>King's Question</string>
+   </property>
+  </action>
+  <action name="actionJoker_s_Dilemma">
+   <property name="text">
+    <string>Joker's Dilemma</string>
    </property>
   </action>
  </widget>
