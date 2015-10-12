@@ -25,12 +25,25 @@
 ** JOKER, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include "joker_card.h"
 #include "joker_deck.h"
 
 joker_deck::joker_deck(void)
 {
+  m_cards.resize(DECK_SIZE);
+
+  for(int i = 0; i < m_cards.size(); i++)
+    m_cards[i] = new joker_card(joker_card::ACE_CLUBS);
 }
 
 joker_deck::~joker_deck(void)
+{
+  for(int i = 0; i < m_cards.size(); i++)
+    delete m_cards[i];
+
+  m_cards.clear();
+}
+
+void joker_deck::shuffle(void)
 {
 }

@@ -27,8 +27,18 @@
 
 #include "joker_game.h"
 
-joker_game::joker_game(void)
+joker_game::joker_game(const GameType gameType)
 {
+  m_gameType = gameType;
+
+  if(m_gameType == JOKERS_DILEMMA)
+    m_cardCount = 14;
+  else if(m_gameType == JUMPING_JACKS)
+    m_cardCount = 11;
+  else if(m_gameType == KINGS_QUESTION)
+    m_cardCount = 13;
+  else
+    m_cardCount = 12;
 }
 
 joker_game::~joker_game(void)

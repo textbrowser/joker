@@ -28,14 +28,18 @@
 #ifndef _joker_deck_h_
 #define _joker_deck_h_
 
+class joker_card;
+
 class joker_deck
 {
  public:
   static const int DECK_SIZE = 54;
   joker_deck(void);
   ~joker_deck();
+  void shuffle(void);
 
  private:
+  QVector<joker_card *> m_cards;
 };
 
 #endif
