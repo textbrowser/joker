@@ -36,6 +36,7 @@ HEADERS		= Include\\joker.h
 
 SOURCES		= Source\\joker.cc \
                   Source\\joker_card.cc \
+		  Source\\joker_deck.cc \
                   Source\\main.cc
 
 TRANSLATIONS    =
