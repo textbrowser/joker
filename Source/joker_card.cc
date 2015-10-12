@@ -27,8 +27,9 @@
 
 #include "joker_card.h"
 
-joker_card::joker_card(void)
+joker_card::joker_card(const Type type)
 {
+  m_type = type;
 }
 
 joker_card::~joker_card()

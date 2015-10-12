@@ -31,8 +31,69 @@
 class joker_card
 {
  public:
-  joker_card(void);
+  enum Type
+  {
+    ACE_CLUBS = 0,
+    ACE_DIAMONDS,
+    ACE_HEARTS,
+    ACE_SPADES,
+    EIGHT_CLUBS,
+    EIGHT_DIAMONDS,
+    EIGHT_HEARTS,
+    EIGHT_SPADES,
+    FIVE_CLUBS,
+    FIVE_DIAMONDS,
+    FIVE_HEARTS,
+    FIVE_SPADES,
+    FOUR_CLUBS,
+    FOUR_DIAMONDS,
+    FOUR_HEARTS,
+    FOUR_SPADES,
+    JACK_CLUBS,
+    JACK_DIAMONDS,
+    JACK_HEARTS,
+    JACK_SPADES,
+    JOKER_1,
+    JOKER_2,
+    KING_CLUBS,
+    KING_DIAMONDS,
+    KING_HEARTS,
+    KING_SPADES,
+    NINE_CLUBS,
+    NINE_DIAMONDS,
+    NINE_HEARTS,
+    NINE_SPADES,
+    QUEEN_CLUBS,
+    QUEEN_DIAMONDS,
+    QUEEN_HEARTS,
+    QUEEN_SPADES,
+    SEVEN_CLUBS,
+    SEVEN_DIAMONDS,
+    SEVEN_HEARTS,
+    SEVEN_SPADES,
+    SIX_CLUBS,
+    SIX_DIAMONDS,
+    SIX_HEARTS,
+    SIX_SPADES,
+    TEN_CLUBS,
+    TEN_DIAMONDS,
+    TEN_HEARTS,
+    TEN_SPADES,
+    THREE_CLUBS,
+    THREE_DIAMONDS,
+    THREE_HEARTS,
+    THREE_SPADES,
+    TWO_CLUBS,
+    TWO_DIAMONDS,
+    TWO_HEARTS,
+    TWO_SPADES
+  };
+
+  joker_card(const Type type);
   ~joker_card();
+
+ private:
+  Type m_type;
 };
 
 #endif
