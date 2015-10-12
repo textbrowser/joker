@@ -25,17 +25,12 @@
 ** JOKER, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef _joker_deck_h_
-#define _joker_deck_h_
+#include "joker_game.h"
 
-class joker_deck
+joker_game::joker_game(void)
 {
- public:
-  static const int DECK_SIZE = 54;
-  joker_deck(void);
-  ~joker_deck();
+}
 
- private:
-};
-
-#endif
+joker_game::~joker_game(void)
+{
+}

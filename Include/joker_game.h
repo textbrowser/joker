@@ -25,17 +25,25 @@
 ** JOKER, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef _joker_deck_h_
-#define _joker_deck_h_
+#ifndef _joker_game_h_
+#define _joker_game_h_
 
-class joker_deck
+class joker_game
 {
  public:
-  static const int DECK_SIZE = 54;
-  joker_deck(void);
-  ~joker_deck();
+  enum GameType
+  {
+    JOKERS_DILEMMA = 0,
+    JUMPING_JACKS,
+    KINGS_QUESTION,
+    QUEENS_SHUFFLE
+  };
+
+  joker_game(void);
+  ~joker_game();
 
  private:
+  GameType m_gameType;
 };
 
 #endif
