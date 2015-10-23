@@ -30,8 +30,17 @@
 joker::joker(void):QMainWindow()
 {
   m_ui.setupUi(this);
+  connect(m_ui.action_Quit,
+	  SIGNAL(triggered(void)),
+	  this,
+	  SLOT(slotQuit(void)));
 }
 
 joker::~joker()
 {
+}
+
+void joker::slotQuit(void)
+{
+  QApplication::instance()->quit();
 }

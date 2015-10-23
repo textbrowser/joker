@@ -23,10 +23,10 @@ INCLUDEPATH	+= Include
 LIBS		+=
 RESOURCES	=
 
-MOC_DIR = temp/moc
-OBJECTS_DIR = temp/obj
-RCC_DIR = temp/rcc
-UI_DIR = temp/ui
+MOC_DIR = temp\\moc
+OBJECTS_DIR = temp\\obj
+RCC_DIR = temp\\rcc
+UI_DIR = temp\\ui
 
 FORMS           = UI\\joker.ui
 

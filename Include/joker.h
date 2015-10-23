@@ -34,12 +34,17 @@
 
 class joker: public QMainWindow
 {
+  Q_OBJECT
+
  public:
   joker(void);
   ~joker();
 
  private:
   Ui_joker_mainwindow m_ui;
+
+ private slots:
+  void slotQuit(void);
 };
 
 #endif
