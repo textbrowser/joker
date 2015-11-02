@@ -35,3 +35,8 @@ joker_card::joker_card(const Type type)
 joker_card::~joker_card()
 {
 }
+
+joker_card::Type joker_card::type(void) const
+{
+  return m_type;
+}

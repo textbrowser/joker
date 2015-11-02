@@ -93,6 +93,7 @@ class joker_card
 
   joker_card(const Type type);
   ~joker_card();
+  Type type(void) const;
 
  private:
   QPixmap m_pixmap;

@@ -26,10 +26,16 @@
 */
 
 #include "joker.h"
+#include "joker_game.h"
 
 joker::joker(void):QMainWindow()
 {
+  m_game = 0;
   m_ui.setupUi(this);
+  connect(m_ui.actionJumping_Jacks,
+	  SIGNAL(triggered(void)),
+	  this,
+	  SLOT(slotJumpingJacks(void)));
   connect(m_ui.action_Quit,
 	  SIGNAL(triggered(void)),
 	  this,
@@ -38,6 +44,16 @@ joker::joker(void):QMainWindow()
 
 joker::~joker()
 {
+  if(m_game)
+    delete m_game;
+}
+
+void joker::slotJumpingJacks(void)
+{
+  if(m_game)
+    delete m_game;
+
+  m_game = new joker_game(joker_game::JUMPING_JACKS);
 }
 
 void joker::slotQuit(void)

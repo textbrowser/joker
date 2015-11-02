@@ -28,6 +28,8 @@
 #ifndef _joker_game_h_
 #define _joker_game_h_
 
+class joker_deck;
+
 class joker_game
 {
  public:
@@ -45,6 +47,7 @@ class joker_game
  private:
   GameType m_gameType;
   int m_cardCount;
+  joker_deck *m_deck;
 };
 
 #endif

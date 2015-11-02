@@ -25,15 +25,68 @@
 ** JOKER, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include <QTime>
+
 #include "joker_card.h"
 #include "joker_deck.h"
 
 joker_deck::joker_deck(void)
 {
-  m_cards.resize(DECK_SIZE);
-
-  for(int i = 0; i < m_cards.size(); i++)
-    m_cards[i] = new joker_card(joker_card::ACE_CLUBS);
+  m_cards << new joker_card(joker_card::ACE_CLUBS);
+  m_cards << new joker_card(joker_card::ACE_DIAMONDS);
+  m_cards << new joker_card(joker_card::ACE_HEARTS);
+  m_cards << new joker_card(joker_card::ACE_SPADES);
+  m_cards << new joker_card(joker_card::EIGHT_CLUBS);
+  m_cards << new joker_card(joker_card::EIGHT_DIAMONDS);
+  m_cards << new joker_card(joker_card::EIGHT_HEARTS);
+  m_cards << new joker_card(joker_card::EIGHT_SPADES);
+  m_cards << new joker_card(joker_card::FIVE_CLUBS);
+  m_cards << new joker_card(joker_card::FIVE_DIAMONDS);
+  m_cards << new joker_card(joker_card::FIVE_HEARTS);
+  m_cards << new joker_card(joker_card::FIVE_SPADES);
+  m_cards << new joker_card(joker_card::FOUR_CLUBS);
+  m_cards << new joker_card(joker_card::FOUR_DIAMONDS);
+  m_cards << new joker_card(joker_card::FOUR_HEARTS);
+  m_cards << new joker_card(joker_card::FOUR_SPADES);
+  m_cards << new joker_card(joker_card::JACK_CLUBS);
+  m_cards << new joker_card(joker_card::JACK_DIAMONDS);
+  m_cards << new joker_card(joker_card::JACK_HEARTS);
+  m_cards << new joker_card(joker_card::JACK_SPADES);
+  m_cards << new joker_card(joker_card::JOKER_1);
+  m_cards << new joker_card(joker_card::JOKER_2);
+  m_cards << new joker_card(joker_card::KING_CLUBS);
+  m_cards << new joker_card(joker_card::KING_DIAMONDS);
+  m_cards << new joker_card(joker_card::KING_HEARTS);
+  m_cards << new joker_card(joker_card::KING_SPADES);
+  m_cards << new joker_card(joker_card::NINE_CLUBS);
+  m_cards << new joker_card(joker_card::NINE_DIAMONDS);
+  m_cards << new joker_card(joker_card::NINE_HEARTS);
+  m_cards << new joker_card(joker_card::NINE_SPADES);
+  m_cards << new joker_card(joker_card::QUEEN_CLUBS);
+  m_cards << new joker_card(joker_card::QUEEN_DIAMONDS);
+  m_cards << new joker_card(joker_card::QUEEN_HEARTS);
+  m_cards << new joker_card(joker_card::QUEEN_SPADES);
+  m_cards << new joker_card(joker_card::SEVEN_CLUBS);
+  m_cards << new joker_card(joker_card::SEVEN_DIAMONDS);
+  m_cards << new joker_card(joker_card::SEVEN_HEARTS);
+  m_cards << new joker_card(joker_card::SEVEN_SPADES);
+  m_cards << new joker_card(joker_card::SIX_CLUBS);
+  m_cards << new joker_card(joker_card::SIX_DIAMONDS);
+  m_cards << new joker_card(joker_card::SIX_HEARTS);
+  m_cards << new joker_card(joker_card::SIX_SPADES);
+  m_cards << new joker_card(joker_card::TEN_CLUBS);
+  m_cards << new joker_card(joker_card::TEN_DIAMONDS);
+  m_cards << new joker_card(joker_card::TEN_HEARTS);
+  m_cards << new joker_card(joker_card::TEN_SPADES);
+  m_cards << new joker_card(joker_card::THREE_CLUBS);
+  m_cards << new joker_card(joker_card::THREE_DIAMONDS);
+  m_cards << new joker_card(joker_card::THREE_HEARTS);
+  m_cards << new joker_card(joker_card::THREE_SPADES);
+  m_cards << new joker_card(joker_card::TWO_CLUBS);
+  m_cards << new joker_card(joker_card::TWO_DIAMONDS);
+  m_cards << new joker_card(joker_card::TWO_HEARTS);
+  m_cards << new joker_card(joker_card::TWO_SPADES);
+  shuffle();
 }
 
 joker_deck::~joker_deck(void)
@@ -46,4 +99,15 @@ joker_deck::~joker_deck(void)
 
 void joker_deck::shuffle(void)
 {
+  qsrand(static_cast<uint> (QTime(0, 0, 0).secsTo(QTime::currentTime())));
+
+  for(int i = 0; i < m_cards.size(); i++)
+    {
+      int index = qrand() % m_cards.size();
+      joker_card *card1 = m_cards[i];
+      joker_card *card2 = m_cards[index];
+
+      m_cards.replace(i, card2);
+      m_cards.replace(index, card1);
+    }
 }

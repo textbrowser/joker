@@ -32,6 +32,8 @@
 
 #include "ui_joker.h"
 
+class joker_game;
+
 class joker: public QMainWindow
 {
   Q_OBJECT
@@ -42,8 +44,10 @@ class joker: public QMainWindow
 
  private:
   Ui_joker_mainwindow m_ui;
+  joker_game *m_game;
 
  private slots:
+  void slotJumpingJacks(void);
   void slotQuit(void);
 };
 

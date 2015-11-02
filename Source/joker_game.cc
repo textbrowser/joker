@@ -25,6 +25,7 @@
 ** JOKER, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include "joker_deck.h"
 #include "joker_game.h"
 
 joker_game::joker_game(const GameType gameType)
@@ -39,8 +40,11 @@ joker_game::joker_game(const GameType gameType)
     m_cardCount = 13;
   else
     m_cardCount = 12;
+
+  m_deck = new joker_deck();
 }
 
 joker_game::~joker_game(void)
 {
+  delete m_deck;
 }

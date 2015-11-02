@@ -28,6 +28,8 @@
 #ifndef _joker_deck_h_
 #define _joker_deck_h_
 
+#include <QVector>
+
 class joker_card;
 
 class joker_deck
