@@ -7,6 +7,9 @@ CONFIG          += app_bundle
 DEFINES		+=
 LANGUAGE	= C++
 QT		+= gui
+greaterThan(QT_MAJOR_VERSION, 4) {
+QT += widgets
+}
 TEMPLATE	= app
 
 QMAKE_CLEAN	+= Joker
