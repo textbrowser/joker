@@ -1,6 +1,9 @@
 purge.commands = rm -f *~ && rm -f */*~
 
-CONFIG		+= qt release thread warn_on
+CONFIG		+= qt release warn_on
+mac {
+CONFIG          += app_bundle
+}
 DEFINES		+=
 LANGUAGE	= C++
 QT		+= gui
@@ -44,3 +47,20 @@ TRANSLATIONS    =
 
 PROJECTNAME	= Joker
 TARGET		= Joker
+
+mac {
+joker.path	  = /Applications/Joker.d/Joker.app
+joker.files	  = Joker.app/*
+macdeployqt.path  = ./Joker.app
+macdeployqt.extra = $$[QT_INSTALL_BINS]/macdeployqt ./Joker.app
+
+INSTALLS	= macdeployqt \
+                  joker
+}
+
+unix {
+joker.path      = /usr/local/bin
+joker.files     = Joker
+
+INSTALLS        = joker
+}
