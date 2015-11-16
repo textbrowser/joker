@@ -31,6 +31,7 @@ extern "C"
 }
 
 #include <QApplication>
+#include <QSettings>
 #include <iostream>
 
 #include "joker.h"
@@ -44,6 +45,11 @@ int main(int argc, char *argv[])
       QApplication application(argc, argv);
       joker j;
 
+      QCoreApplication::setApplicationName("Joker");
+      QCoreApplication::setOrganizationName("Joker");
+      QSettings::setPath(QSettings::IniFormat, QSettings::UserScope,
+			 joker::homePath());
+      QSettings::setDefaultFormat(QSettings::IniFormat);
       j.show();
       rc = application.exec();
     }

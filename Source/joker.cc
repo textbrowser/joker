@@ -25,6 +25,9 @@
 ** JOKER, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include <QDir>
+#include <QSettings>
+
 #include "joker.h"
 #include "joker_game.h"
 
@@ -40,12 +43,26 @@ joker::joker(void):QMainWindow()
 	  SIGNAL(triggered(void)),
 	  this,
 	  SLOT(slotQuit(void)));
+
+  QSettings settings;
+
+  restoreGeometry(settings.value("geometry").toByteArray());
+  restoreState(settings.value("state").toByteArray());
 }
 
 joker::~joker()
 {
   if(m_game)
     delete m_game;
+}
+
+QString joker::homePath(void)
+{
+#ifdef Q_OS_WIN32
+  return QDir::currentPath() + QDir::separator() + ".joker.d";
+#else
+  return QDir::homePath() + QDir::separator() + ".joker.d";
+#endif
 }
 
 void joker::slotJumpingJacks(void)
@@ -58,5 +75,9 @@ void joker::slotJumpingJacks(void)
 
 void joker::slotQuit(void)
 {
+  QSettings settings;
+
+  settings.setValue("geometry", saveGeometry());
+  settings.setValue("state", saveState());
   QApplication::instance()->quit();
 }

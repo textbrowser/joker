@@ -41,6 +41,7 @@ class joker: public QMainWindow
  public:
   joker(void);
   ~joker();
+  static QString homePath(void);
 
  private:
   Ui_joker_mainwindow m_ui;
