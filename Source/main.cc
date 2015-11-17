@@ -45,11 +45,11 @@ int main(int argc, char *argv[])
       QApplication application(argc, argv);
       joker j;
 
-      QCoreApplication::setApplicationName("Joker");
-      QCoreApplication::setOrganizationName("Joker");
+      QApplication::setApplicationName("Joker");
+      QApplication::setOrganizationName("Joker");
+      QSettings::setDefaultFormat(QSettings::IniFormat);
       QSettings::setPath(QSettings::IniFormat, QSettings::UserScope,
 			 joker::homePath());
-      QSettings::setDefaultFormat(QSettings::IniFormat);
       j.show();
       rc = application.exec();
     }

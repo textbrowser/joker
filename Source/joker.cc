@@ -43,11 +43,6 @@ joker::joker(void):QMainWindow()
 	  SIGNAL(triggered(void)),
 	  this,
 	  SLOT(slotQuit(void)));
-
-  QSettings settings;
-
-  restoreGeometry(settings.value("geometry").toByteArray());
-  restoreState(settings.value("state").toByteArray());
 }
 
 joker::~joker()
@@ -65,6 +60,24 @@ QString joker::homePath(void)
 #endif
 }
 
+void joker::closeEvent(QCloseEvent *event)
+{
+  QSettings settings;
+
+  settings.setValue("geometry", saveGeometry());
+  settings.setValue("state", saveState());
+  QMainWindow::closeEvent(event);
+}
+
+void joker::show(void)
+{
+  QSettings settings;
+
+  restoreGeometry(settings.value("geometry").toByteArray());
+  restoreState(settings.value("state").toByteArray());
+  QMainWindow::show();
+}
+
 void joker::slotJumpingJacks(void)
 {
   if(m_game)
@@ -75,9 +88,6 @@ void joker::slotJumpingJacks(void)
 
 void joker::slotQuit(void)
 {
-  QSettings settings;
-
-  settings.setValue("geometry", saveGeometry());
-  settings.setValue("state", saveState());
+  close();
   QApplication::instance()->quit();
 }

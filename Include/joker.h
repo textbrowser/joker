@@ -42,10 +42,12 @@ class joker: public QMainWindow
   joker(void);
   ~joker();
   static QString homePath(void);
+  void show(void);
 
  private:
   Ui_joker_mainwindow m_ui;
   joker_game *m_game;
+  void closeEvent(QCloseEvent *event);
 
  private slots:
   void slotJumpingJacks(void);
