@@ -26,15 +26,18 @@
 */
 
 #include <QDir>
+#include <QGraphicsScene>
 #include <QSettings>
 
 #include "joker.h"
 #include "joker_game.h"
+#include "joker_graphicsitempixmap.h"
 
 joker::joker(void):QMainWindow()
 {
   m_game = 0;
   m_ui.setupUi(this);
+  m_ui.view->setScene(new QGraphicsScene(this));
   connect(m_ui.actionJumping_Jacks,
 	  SIGNAL(triggered(void)),
 	  this,
@@ -83,7 +86,35 @@ void joker::slotJumpingJacks(void)
   if(m_game)
     delete m_game;
 
+  m_ui.view->scene()->clear();
   m_game = new joker_game(joker_game::JUMPING_JACKS);
+
+  int columnIndex = 0;
+  int rowIndex = 0;
+
+  for(int i = 0; i < m_game->cardCount(); i++)
+    {
+      joker_graphicsitempixmap *pixmapItem = new joker_graphicsitempixmap
+	(QPixmap(":/joker.png").
+	 scaled(126, 187, Qt::KeepAspectRatio, Qt::SmoothTransformation), 0);
+
+      if(rowIndex == 0)
+	pixmapItem->setPos(130 * columnIndex, 0);
+      else
+	pixmapItem->setPos(130 * columnIndex, 150 * rowIndex);
+
+      columnIndex += 1;
+      m_ui.view->scene()->addItem(pixmapItem);
+      pixmapItem->setFlag(QGraphicsItem::ItemIsSelectable, true);
+
+      if(columnIndex >= m_game->cardCount() / 2)
+	{
+	  rowIndex += 1;
+	  columnIndex = 0;
+	}
+    }
+
+  m_ui.view->scene()->setSceneRect(m_ui.view->scene()->itemsBoundingRect());
 }
 
 void joker::slotQuit(void)

@@ -25,30 +25,29 @@
 ** JOKER, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef _joker_game_h_
-#define _joker_game_h_
+#ifndef _joker_graphicsitempixmap_h_
+#define _joker_graphicsitempixmap_h_
 
-class joker_deck;
+#include <QGraphicsPixmapItem>
 
-class joker_game
+class joker_graphicsitempixmap: public QGraphicsPixmapItem
 {
- public:
-  enum GameType
+public:
+  joker_graphicsitempixmap(const QPixmap &pixmap,
+			   QGraphicsItem *parent):
+    QGraphicsPixmapItem(pixmap, parent)
   {
-    JOKERS_DILEMMA = 0,
-    JUMPING_JACKS,
-    KINGS_QUESTION,
-    QUEENS_SHUFFLE
-  };
+  }
 
-  joker_game(const GameType gameType);
-  ~joker_game();
-  int cardCount(void) const;
+  ~joker_graphicsitempixmap()
+  {
+  }
 
- private:
-  GameType m_gameType;
-  int m_cardCount;
-  joker_deck *m_deck;
+  void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
+	     QWidget *widget = 0)
+  {
+    QGraphicsPixmapItem::paint(painter, option, widget);
+  }
 };
 
 #endif

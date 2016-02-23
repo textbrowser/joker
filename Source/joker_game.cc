@@ -48,3 +48,8 @@ joker_game::~joker_game(void)
 {
   delete m_deck;
 }
+
+int joker_game::cardCount(void) const
+{
+  return m_cardCount;
+}

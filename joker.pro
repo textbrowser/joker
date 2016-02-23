@@ -24,10 +24,10 @@ QMAKE_DISTCLEAN += -r Include -r temp
 QMAKE_EXTRA_TARGETS = purge
 QMAKE_STRIP	= echo
 
-ICON		=
+ICON		= Icons\\joker.png
 INCLUDEPATH	+= Include
 LIBS		+=
-RESOURCES	=
+RESOURCES       = Icons\\icons.qrc
 
 MOC_DIR = temp/moc
 OBJECTS_DIR = temp/obj
