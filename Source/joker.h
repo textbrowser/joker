@@ -48,6 +48,7 @@ class joker: public QMainWindow
   Ui_joker_mainwindow m_ui;
   joker_game *m_game;
   void closeEvent(QCloseEvent *event);
+  void prepareView(void);
 
  private slots:
   void slotJumpingJacks(void);

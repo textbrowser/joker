@@ -72,22 +72,9 @@ void joker::closeEvent(QCloseEvent *event)
   QMainWindow::closeEvent(event);
 }
 
-void joker::show(void)
+void joker::prepareView(void)
 {
-  QSettings settings;
-
-  restoreGeometry(settings.value("geometry").toByteArray());
-  restoreState(settings.value("state").toByteArray());
-  QMainWindow::show();
-}
-
-void joker::slotJumpingJacks(void)
-{
-  if(m_game)
-    delete m_game;
-
   m_ui.view->scene()->clear();
-  m_game = new joker_game(joker_game::JUMPING_JACKS);
 
   int columnIndex = 0;
   int rowIndex = 0;
@@ -115,6 +102,24 @@ void joker::slotJumpingJacks(void)
     }
 
   m_ui.view->scene()->setSceneRect(m_ui.view->scene()->itemsBoundingRect());
+}
+
+void joker::show(void)
+{
+  QSettings settings;
+
+  restoreGeometry(settings.value("geometry").toByteArray());
+  restoreState(settings.value("state").toByteArray());
+  QMainWindow::show();
+}
+
+void joker::slotJumpingJacks(void)
+{
+  if(m_game)
+    delete m_game;
+
+  m_game = new joker_game(joker_game::JUMPING_JACKS);
+  prepareView();
 }
 
 void joker::slotQuit(void)
