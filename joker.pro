@@ -20,7 +20,7 @@ QMAKE_CXXFLAGS_RELEASE += -fPIE -fstack-protector-all -fwrapv \
                           -Werror -Wextra \
                           -Woverloaded-virtual -Wpointer-arith \
                           -Wstack-protector -Wstrict-overflow=5
-QMAKE_DISTCLEAN += -r temp
+QMAKE_DISTCLEAN += -r Include -r temp
 QMAKE_EXTRA_TARGETS = purge
 QMAKE_STRIP	= echo
 
@@ -38,7 +38,7 @@ FORMS           = UI\\joker.ui
 
 UI_HEADERS_DIR  = Include
 
-HEADERS		= Include\\joker.h
+HEADERS		= Source\\joker.h
 
 SOURCES		= Source\\joker.cc \
                   Source\\joker_card.cc \
