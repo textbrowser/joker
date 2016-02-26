@@ -42,9 +42,9 @@
       <string>&amp;New Game</string>
      </property>
      <addaction name="actionJumping_Jacks"/>
-     <addaction name="actionQueen_s_Shuffle"/>
-     <addaction name="actionKing_s_Question"/>
-     <addaction name="actionJoker_s_Dilemma"/>
+     <addaction name="actionQueens_Shuffle"/>
+     <addaction name="actionKings_Question"/>
+     <addaction name="actionJokers_Dilemma"/>
     </widget>
     <addaction name="menu_New_Game"/>
     <addaction name="separator"/>
@@ -85,17 +85,17 @@
     <string>Jumping Jacks</string>
    </property>
   </action>
-  <action name="actionQueen_s_Shuffle">
+  <action name="actionQueens_Shuffle">
    <property name="text">
     <string>Queen's Shuffle</string>
    </property>
   </action>
-  <action name="actionKing_s_Question">
+  <action name="actionKings_Question">
    <property name="text">
     <string>King's Question</string>
    </property>
   </action>
-  <action name="actionJoker_s_Dilemma">
+  <action name="actionJokers_Dilemma">
    <property name="text">
     <string>Joker's Dilemma</string>
    </property>

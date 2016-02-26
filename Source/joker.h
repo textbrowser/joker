@@ -52,6 +52,7 @@ class joker: public QMainWindow
 
  private slots:
   void slotJumpingJacks(void);
+  void slotQueensShuffle(void);
   void slotQuit(void);
 };
 

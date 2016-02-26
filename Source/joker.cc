@@ -42,6 +42,10 @@ joker::joker(void):QMainWindow()
 	  SIGNAL(triggered(void)),
 	  this,
 	  SLOT(slotJumpingJacks(void)));
+  connect(m_ui.actionQueens_Shuffle,
+	  SIGNAL(triggered(void)),
+	  this,
+	  SLOT(slotQueensShuffle(void)));
   connect(m_ui.action_Quit,
 	  SIGNAL(triggered(void)),
 	  this,
@@ -50,8 +54,7 @@ joker::joker(void):QMainWindow()
 
 joker::~joker()
 {
-  if(m_game)
-    delete m_game;
+  delete m_game;
 }
 
 QString joker::homePath(void)
@@ -74,6 +77,9 @@ void joker::closeEvent(QCloseEvent *event)
 
 void joker::prepareView(void)
 {
+  if(!m_game)
+    return;
+
   m_ui.view->scene()->clear();
 
   int columnIndex = 0;
@@ -115,10 +121,15 @@ void joker::show(void)
 
 void joker::slotJumpingJacks(void)
 {
-  if(m_game)
-    delete m_game;
-
+  delete m_game;
   m_game = new joker_game(joker_game::JUMPING_JACKS);
+  prepareView();
+}
+
+void joker::slotQueensShuffle(void)
+{
+  delete m_game;
+  m_game = new joker_game(joker_game::QUEENS_SHUFFLE);
   prepareView();
 }
 
