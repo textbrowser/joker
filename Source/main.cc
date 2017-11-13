@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
       QApplication::setOrganizationName("Joker");
       QSettings::setDefaultFormat(QSettings::IniFormat);
       QSettings::setPath(QSettings::IniFormat, QSettings::UserScope,
-			 joker::homePath());
+			 joker::home_path());
       j.show();
       rc = application.exec();
     }

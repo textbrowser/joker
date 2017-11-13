@@ -41,19 +41,19 @@ class joker: public QMainWindow
  public:
   joker(void);
   ~joker();
-  static QString homePath(void);
+  static QString home_path(void);
   void show(void);
 
  private:
   Ui_joker_mainwindow m_ui;
   joker_game *m_game;
   void closeEvent(QCloseEvent *event);
-  void prepareView(void);
+  void prepare_view(void);
 
  private slots:
-  void slotJumpingJacks(void);
-  void slotQueensShuffle(void);
-  void slotQuit(void);
+  void slot_jumping_jacks(void);
+  void slot_queens_shuffle(void);
+  void slot_quit(void);
 };
 
 #endif

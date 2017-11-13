@@ -24,27 +24,27 @@ QMAKE_DISTCLEAN += -r Include -r temp
 QMAKE_EXTRA_TARGETS = purge
 QMAKE_STRIP	= echo
 
-ICON		= Icons\\joker.png
+ICON		= Icons/joker.png
 INCLUDEPATH	+= Include
 LIBS		+=
-RESOURCES       = Icons\\icons.qrc
+RESOURCES       = Icons/icons.qrc
 
 MOC_DIR = temp/moc
 OBJECTS_DIR = temp/obj
 RCC_DIR = temp/rcc
 UI_DIR = temp/ui
 
-FORMS           = UI\\joker.ui
+FORMS           = UI/joker.ui
 
 UI_HEADERS_DIR  = Include
 
-HEADERS		= Source\\joker.h
+HEADERS		= Source/joker.h
 
-SOURCES		= Source\\joker.cc \
-                  Source\\joker_card.cc \
-		  Source\\joker_deck.cc \
-		  Source\\joker_game.cc \
-                  Source\\main.cc
+SOURCES		= Source/joker.cc \
+                  Source/joker_card.cc \
+		  Source/joker_deck.cc \
+		  Source/joker_game.cc \
+                  Source/main.cc
 
 TRANSLATIONS    =
 

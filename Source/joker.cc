@@ -41,15 +41,15 @@ joker::joker(void):QMainWindow()
   connect(m_ui.actionJumping_Jacks,
 	  SIGNAL(triggered(void)),
 	  this,
-	  SLOT(slotJumpingJacks(void)));
+	  SLOT(slot_jumping_jacks(void)));
   connect(m_ui.actionQueens_Shuffle,
 	  SIGNAL(triggered(void)),
 	  this,
-	  SLOT(slotQueensShuffle(void)));
+	  SLOT(slot_queens_shuffle(void)));
   connect(m_ui.action_Quit,
 	  SIGNAL(triggered(void)),
 	  this,
-	  SLOT(slotQuit(void)));
+	  SLOT(slot_quit(void)));
 }
 
 joker::~joker()
@@ -57,7 +57,7 @@ joker::~joker()
   delete m_game;
 }
 
-QString joker::homePath(void)
+QString joker::home_path(void)
 {
 #ifdef Q_OS_WIN32
   return QDir::currentPath() + QDir::separator() + ".joker.d";
@@ -75,7 +75,7 @@ void joker::closeEvent(QCloseEvent *event)
   QMainWindow::closeEvent(event);
 }
 
-void joker::prepareView(void)
+void joker::prepare_view(void)
 {
   if(!m_game)
     return;
@@ -119,21 +119,21 @@ void joker::show(void)
   QMainWindow::show();
 }
 
-void joker::slotJumpingJacks(void)
+void joker::slot_jumping_jacks(void)
 {
   delete m_game;
   m_game = new joker_game(joker_game::JUMPING_JACKS);
-  prepareView();
+  prepare_view();
 }
 
-void joker::slotQueensShuffle(void)
+void joker::slot_queens_shuffle(void)
 {
   delete m_game;
   m_game = new joker_game(joker_game::QUEENS_SHUFFLE);
-  prepareView();
+  prepare_view();
 }
 
-void joker::slotQuit(void)
+void joker::slot_quit(void)
 {
   close();
   QApplication::instance()->quit();
