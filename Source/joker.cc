@@ -82,8 +82,8 @@ void joker::prepare_view(void)
 
   m_ui.view->scene()->clear();
 
-  int columnIndex = 0;
-  int rowIndex = 0;
+  int column_index = 0;
+  int row_index = 0;
 
   for(int i = 0; i < m_game->card_count(); i++)
     {
@@ -91,19 +91,19 @@ void joker::prepare_view(void)
 	(QPixmap(":/joker.png").
 	 scaled(126, 187, Qt::KeepAspectRatio, Qt::SmoothTransformation), 0);
 
-      if(rowIndex == 0)
-	pixmapItem->setPos(130 * columnIndex, 0);
+      if(row_index == 0)
+	pixmapItem->setPos(130 * column_index, 0);
       else
-	pixmapItem->setPos(130 * columnIndex, 150 * rowIndex);
+	pixmapItem->setPos(130 * column_index, 150 * row_index);
 
-      columnIndex += 1;
+      column_index += 1;
       m_ui.view->scene()->addItem(pixmapItem);
       pixmapItem->setFlag(QGraphicsItem::ItemIsSelectable, true);
 
-      if(columnIndex >= m_game->card_count() / 2)
+      if(column_index >= m_game->card_count() / 2)
 	{
-	  rowIndex += 1;
-	  columnIndex = 0;
+	  row_index += 1;
+	  column_index = 0;
 	}
     }
 
