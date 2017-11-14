@@ -85,7 +85,7 @@ void joker::prepare_view(void)
   int columnIndex = 0;
   int rowIndex = 0;
 
-  for(int i = 0; i < m_game->cardCount(); i++)
+  for(int i = 0; i < m_game->card_count(); i++)
     {
       joker_graphicsitempixmap *pixmapItem = new joker_graphicsitempixmap
 	(QPixmap(":/joker.png").
@@ -100,7 +100,7 @@ void joker::prepare_view(void)
       m_ui.view->scene()->addItem(pixmapItem);
       pixmapItem->setFlag(QGraphicsItem::ItemIsSelectable, true);
 
-      if(columnIndex >= m_game->cardCount() / 2)
+      if(columnIndex >= m_game->card_count() / 2)
 	{
 	  rowIndex += 1;
 	  columnIndex = 0;

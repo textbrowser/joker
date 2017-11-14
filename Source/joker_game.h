@@ -43,7 +43,7 @@ class joker_game
 
   joker_game(const GameType gameType);
   ~joker_game();
-  int cardCount(void) const;
+  int card_count(void) const;
 
  private:
   GameType m_gameType;
