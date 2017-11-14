@@ -41,13 +41,13 @@ class joker_game
     QUEENS_SHUFFLE
   };
 
-  joker_game(const GameType gameType);
+  joker_game(const GameType game_type);
   ~joker_game();
   int card_count(void) const;
 
  private:
-  GameType m_gameType;
-  int m_cardCount;
+  GameType m_game_type;
+  int m_card_count;
   joker_deck *m_deck;
 };
 

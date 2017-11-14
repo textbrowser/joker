@@ -28,18 +28,18 @@
 #include "joker_deck.h"
 #include "joker_game.h"
 
-joker_game::joker_game(const GameType gameType)
+joker_game::joker_game(const GameType game_type)
 {
-  m_gameType = gameType;
+  m_game_type = game_type;
 
-  if(m_gameType == JOKERS_DILEMMA)
-    m_cardCount = 14;
-  else if(m_gameType == JUMPING_JACKS)
-    m_cardCount = 11;
-  else if(m_gameType == KINGS_QUESTION)
-    m_cardCount = 13;
+  if(m_game_type == JOKERS_DILEMMA)
+    m_card_count = 14;
+  else if(m_game_type == JUMPING_JACKS)
+    m_card_count = 11;
+  else if(m_game_type == KINGS_QUESTION)
+    m_card_count = 13;
   else
-    m_cardCount = 12;
+    m_card_count = 12;
 
   m_deck = new joker_deck();
 }
@@ -51,5 +51,5 @@ joker_game::~joker_game(void)
 
 int joker_game::card_count(void) const
 {
-  return m_cardCount;
+  return m_card_count;
 }
