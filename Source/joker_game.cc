@@ -34,11 +34,7 @@ joker_game::joker_game(const GameType game_type)
 
   if(m_game_type == JOKERS_DILEMMA)
     m_card_count = 14;
-  else if(m_game_type == JUMPING_JACKS)
-    m_card_count = 11;
-  else if(m_game_type == KINGS_QUESTION)
-    m_card_count = 13;
-  else
+  else if(m_game_type == QUEENS_SHUFFLE)
     m_card_count = 12;
 
   m_deck = new joker_deck();

@@ -30,7 +30,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>27</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -41,9 +41,7 @@
      <property name="title">
       <string>&amp;New Game</string>
      </property>
-     <addaction name="actionJumping_Jacks"/>
      <addaction name="actionQueens_Shuffle"/>
-     <addaction name="actionKings_Question"/>
      <addaction name="actionJokers_Dilemma"/>
     </widget>
     <addaction name="menu_New_Game"/>
@@ -64,14 +62,6 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <action name="action_Open_Diagram">
-   <property name="text">
-    <string>&amp;Open Diagram</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+O</string>
-   </property>
-  </action>
   <action name="action_Quit">
    <property name="text">
     <string>&amp;Quit</string>
@@ -80,19 +70,9 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
-  <action name="actionJumping_Jacks">
-   <property name="text">
-    <string>Jumping Jacks</string>
-   </property>
-  </action>
   <action name="actionQueens_Shuffle">
    <property name="text">
     <string>Queen's Shuffle</string>
-   </property>
-  </action>
-  <action name="actionKings_Question">
-   <property name="text">
-    <string>King's Question</string>
    </property>
   </action>
   <action name="actionJokers_Dilemma">

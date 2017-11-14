@@ -38,10 +38,6 @@ joker::joker(void):QMainWindow()
   m_game = 0;
   m_ui.setupUi(this);
   m_ui.view->setScene(new QGraphicsScene(this));
-  connect(m_ui.actionJumping_Jacks,
-	  SIGNAL(triggered(void)),
-	  this,
-	  SLOT(slot_jumping_jacks(void)));
   connect(m_ui.actionQueens_Shuffle,
 	  SIGNAL(triggered(void)),
 	  this,
@@ -85,6 +81,36 @@ void joker::prepare_view(void)
   int column_index = 0;
   int row_index = 0;
 
+  /*
+  ** Computer.
+  */
+
+  for(int i = 0; i < m_game->card_count(); i++)
+    {
+      joker_graphicsitempixmap *pixmapItem = new joker_graphicsitempixmap
+	(QPixmap(":/joker.png").
+	 scaled(126, 187, Qt::KeepAspectRatio, Qt::SmoothTransformation), 0);
+
+      if(row_index == 0)
+	pixmapItem->setPos(130 * column_index, 0);
+      else
+	pixmapItem->setPos(130 * column_index, 150 * row_index);
+
+      column_index += 1;
+      m_ui.view->scene()->addItem(pixmapItem);
+      pixmapItem->setFlag(QGraphicsItem::ItemIsSelectable, true);
+
+      if(column_index >= m_game->card_count() / 2)
+	{
+	  row_index += 1;
+	  column_index = 0;
+	}
+    }
+
+  /*
+  ** Player.
+  */
+
   for(int i = 0; i < m_game->card_count(); i++)
     {
       joker_graphicsitempixmap *pixmapItem = new joker_graphicsitempixmap
@@ -117,13 +143,6 @@ void joker::show(void)
   restoreGeometry(settings.value("geometry").toByteArray());
   restoreState(settings.value("state").toByteArray());
   QMainWindow::show();
-}
-
-void joker::slot_jumping_jacks(void)
-{
-  delete m_game;
-  m_game = new joker_game(joker_game::JUMPING_JACKS);
-  prepare_view();
 }
 
 void joker::slot_queens_shuffle(void)

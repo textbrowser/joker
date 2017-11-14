@@ -36,8 +36,6 @@ class joker_game
   enum GameType
   {
     JOKERS_DILEMMA = 0,
-    JUMPING_JACKS,
-    KINGS_QUESTION,
     QUEENS_SHUFFLE
   };
 
