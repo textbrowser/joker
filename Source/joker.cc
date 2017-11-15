@@ -79,26 +79,32 @@ void joker::prepare_view(void)
   m_ui.view->scene()->clear();
 
   int column_index = 0;
+  int height = 200;
   int row_index = 0;
+  int width = 150;
 
   /*
   ** Computer.
   */
 
+
   for(int i = 0; i < m_game->card_count(); i++)
     {
-      joker_graphicsitempixmap *pixmapItem = new joker_graphicsitempixmap
-	(QPixmap(":/joker.png").
-	 scaled(126, 187, Qt::KeepAspectRatio, Qt::SmoothTransformation), 0);
+      joker_graphicsitempixmap *pixmap_item = new joker_graphicsitempixmap
+	(QPixmap(":/card.png").scaled(width,
+				      height,
+				      Qt::IgnoreAspectRatio,
+				      Qt::SmoothTransformation),
+	 0);
 
       if(row_index == 0)
-	pixmapItem->setPos(130 * column_index, 0);
+	pixmap_item->setPos(width * column_index, 0);
       else
-	pixmapItem->setPos(130 * column_index, 150 * row_index);
+	pixmap_item->setPos(width * column_index, height * row_index);
 
       column_index += 1;
-      m_ui.view->scene()->addItem(pixmapItem);
-      pixmapItem->setFlag(QGraphicsItem::ItemIsSelectable, true);
+      m_ui.view->scene()->addItem(pixmap_item);
+      pixmap_item->setFlag(QGraphicsItem::ItemIsSelectable, true);
 
       if(column_index >= m_game->card_count() / 2)
 	{
@@ -113,18 +119,21 @@ void joker::prepare_view(void)
 
   for(int i = 0; i < m_game->card_count(); i++)
     {
-      joker_graphicsitempixmap *pixmapItem = new joker_graphicsitempixmap
-	(QPixmap(":/joker.png").
-	 scaled(126, 187, Qt::KeepAspectRatio, Qt::SmoothTransformation), 0);
+      joker_graphicsitempixmap *pixmap_item = new joker_graphicsitempixmap
+	(QPixmap(":/card.png").scaled(width,
+				      height,
+				      Qt::IgnoreAspectRatio,
+				      Qt::SmoothTransformation),
+	 0);
 
       if(row_index == 0)
-	pixmapItem->setPos(130 * column_index, 0);
+	pixmap_item->setPos(width * column_index, 0);
       else
-	pixmapItem->setPos(130 * column_index, 150 * row_index);
+	pixmap_item->setPos(width * column_index, height * row_index);
 
       column_index += 1;
-      m_ui.view->scene()->addItem(pixmapItem);
-      pixmapItem->setFlag(QGraphicsItem::ItemIsSelectable, true);
+      m_ui.view->scene()->addItem(pixmap_item);
+      pixmap_item->setFlag(QGraphicsItem::ItemIsSelectable, true);
 
       if(column_index >= m_game->card_count() / 2)
 	{
