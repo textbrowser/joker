@@ -91,10 +91,10 @@ void joker::prepare_view(void)
   for(int i = 0; i < m_game->card_count(); i++)
     {
       joker_graphicsitempixmap *pixmap_item = new joker_graphicsitempixmap
-	(QPixmap(":/card.png").scaled(width,
-				      height,
-				      Qt::IgnoreAspectRatio,
-				      Qt::SmoothTransformation),
+	(QPixmap(":/card_joker_theme.png").scaled(width,
+						  height,
+						  Qt::IgnoreAspectRatio,
+						  Qt::SmoothTransformation),
 	 0);
 
       if(row_index == 0)
@@ -120,10 +120,10 @@ void joker::prepare_view(void)
   for(int i = 0; i < m_game->card_count(); i++)
     {
       joker_graphicsitempixmap *pixmap_item = new joker_graphicsitempixmap
-	(QPixmap(":/card.png").scaled(width,
-				      height,
-				      Qt::IgnoreAspectRatio,
-				      Qt::SmoothTransformation),
+	(QPixmap(":/card_joker_theme.png").scaled(width,
+						  height,
+						  Qt::IgnoreAspectRatio,
+						  Qt::SmoothTransformation),
 	 0);
 
       if(row_index == 0)

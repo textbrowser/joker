@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
-	<file>card.png</file>
+	<file>card_joker_theme.png</file>
+	<file>card_moon_sun_theme.png</file>
 	<file>joker.png</file>
     </qresource>
 </RCC>
