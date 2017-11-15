@@ -81,7 +81,7 @@ void joker::prepare_view(void)
   int column_index = 0;
   int height = 200;
   int row_index = 0;
-  int width = 150;
+  int width = 142;
 
   /*
   ** Computer.
