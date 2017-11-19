@@ -104,7 +104,7 @@ void joker::prepare_view(void)
 
       column_index += 1;
       m_ui.view->scene()->addItem(pixmap_item);
-      pixmap_item->setFlag(QGraphicsItem::ItemIsSelectable, true);
+      pixmap_item->setFlag(QGraphicsItem::ItemIsSelectable, false);
 
       if(column_index >= m_game->card_count() / 2)
 	{

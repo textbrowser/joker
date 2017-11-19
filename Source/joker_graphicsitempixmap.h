@@ -32,10 +32,10 @@
 
 class joker_graphicsitempixmap: public QGraphicsPixmapItem
 {
-public:
+ public:
   joker_graphicsitempixmap(const QPixmap &pixmap,
-			   QGraphicsItem *parent):
-    QGraphicsPixmapItem(pixmap, parent)
+			   QGraphicsItem *parent):QGraphicsPixmapItem(pixmap,
+								      parent)
   {
   }
 
@@ -43,10 +43,45 @@ public:
   {
   }
 
-  void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
+  void paint(QPainter *painter,
+	     const QStyleOptionGraphicsItem *option,
 	     QWidget *widget = 0)
   {
-    QGraphicsPixmapItem::paint(painter, option, widget);
+    Q_UNUSED(widget);
+
+    if(!option || !painter)
+      return;
+
+    painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
+
+    QRectF exposed_rect(option->exposedRect.adjusted(-1, -1, 1, 1));
+
+    exposed_rect &= QRectF(offset().x(), offset().y(),
+			   pixmap().width(),
+			   pixmap().height());
+    painter->drawPixmap
+      (exposed_rect, pixmap(), exposed_rect.translated(-offset()));
+
+    if(!(option->state & (QStyle::State_Selected | QStyle::State_HasFocus)))
+      return;
+
+    const QRectF murect = painter->transform().mapRect(QRectF(0, 0, 1, 1));
+
+    if(qFuzzyIsNull(qMax(murect.width(), murect.height())))
+      return;
+
+    const QRectF mbrect = painter->transform().mapRect(boundingRect());
+
+    if(qMin(mbrect.width(), mbrect.height()) < qreal(1.0))
+      return;
+
+    const QColor bgcolor("#3E2723");
+    const qreal pad = 0.0;
+    const qreal pen_width = 2.5;
+
+    painter->setPen(QPen(bgcolor, pen_width, Qt::SolidLine));
+    painter->setBrush(Qt::NoBrush);
+    painter->drawRect(boundingRect().adjusted(pad, pad, -pad, -pad));
   }
 };
 
