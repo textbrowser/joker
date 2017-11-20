@@ -65,12 +65,12 @@ class joker_graphicsitempixmap: public QGraphicsPixmapItem
     if(!(option->state & (QStyle::State_Selected | QStyle::State_HasFocus)))
       return;
 
-    const QRectF murect = painter->transform().mapRect(QRectF(0, 0, 1, 1));
+    const QRectF murect(painter->transform().mapRect(QRectF(0, 0, 1, 1)));
 
     if(qFuzzyIsNull(qMax(murect.width(), murect.height())))
       return;
 
-    const QRectF mbrect = painter->transform().mapRect(boundingRect());
+    const QRectF mbrect(painter->transform().mapRect(boundingRect()));
 
     if(qMin(mbrect.width(), mbrect.height()) < qreal(1.0))
       return;
