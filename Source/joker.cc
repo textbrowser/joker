@@ -27,6 +27,7 @@
 
 #include <QDir>
 #include <QGraphicsScene>
+#include <QGraphicsTextItem>
 #include <QSettings>
 
 #include "joker.h"
@@ -119,6 +120,7 @@ void joker::prepare_view(void)
 
   for(int i = 0; i < m_game->card_count(); i++)
     {
+      QGraphicsTextItem *text_item = new QGraphicsTextItem();
       joker_graphicsitempixmap *pixmap_item = new joker_graphicsitempixmap
 	(QPixmap(":/card_joker_theme.png").scaled(width,
 						  height,
@@ -126,14 +128,13 @@ void joker::prepare_view(void)
 						  Qt::SmoothTransformation),
 	 0);
 
-      if(row_index == 0)
-	pixmap_item->setPos(width * column_index, 0);
-      else
-	pixmap_item->setPos(width * column_index, height * row_index);
-
+      pixmap_item->setPos(width * column_index, height * row_index);
+      text_item->setPos(width * column_index, height * row_index);
       column_index += 1;
       m_ui.view->scene()->addItem(pixmap_item);
+      m_ui.view->scene()->addItem(text_item);
       pixmap_item->setFlag(QGraphicsItem::ItemIsSelectable, true);
+      text_item->setHtml(QString("<font size=10><b>%1</b></font>").arg(i + 1));
 
       if(column_index >= m_game->card_count() / 2)
 	{
