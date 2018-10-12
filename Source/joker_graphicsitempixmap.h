@@ -29,6 +29,7 @@
 #define _joker_graphicsitempixmap_h_
 
 #include <QGraphicsPixmapItem>
+#include <QStyleOptionGraphicsItem>
 
 class joker_graphicsitempixmap: public QGraphicsPixmapItem
 {
