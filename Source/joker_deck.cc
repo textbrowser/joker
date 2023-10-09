@@ -105,7 +105,7 @@ void joker_deck::shuffle(void)
 
   for(int i = 0; i < m_cards.size(); i++)
     {
-      auto index = static_cast<int> (random.generate() % m_cards.size());
+      auto index = static_cast<int> (random.generate()) % m_cards.size());
       auto card_1 = m_cards[i];
       auto card_2 = m_cards[index];
 
