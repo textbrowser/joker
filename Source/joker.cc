@@ -47,6 +47,7 @@ joker::joker(void):QMainWindow()
 	  SIGNAL(triggered(void)),
 	  this,
 	  SLOT(slot_quit(void)));
+  setWindowIcon(QIcon(":/joker.png"));
 }
 
 joker::~joker()
@@ -91,7 +92,7 @@ void joker::prepare_view(void)
 
   for(int i = 0; i < m_game->card_count(); i++)
     {
-      joker_graphicsitempixmap *pixmap_item = new joker_graphicsitempixmap
+      auto pixmap_item = new joker_graphicsitempixmap
 	(QPixmap(":/card_joker_theme.png").scaled(width,
 						  height,
 						  Qt::IgnoreAspectRatio,
@@ -120,13 +121,13 @@ void joker::prepare_view(void)
 
   for(int i = 0; i < m_game->card_count(); i++)
     {
-      QGraphicsTextItem *text_item = new QGraphicsTextItem();
-      joker_graphicsitempixmap *pixmap_item = new joker_graphicsitempixmap
+      auto pixmap_item = new joker_graphicsitempixmap
 	(QPixmap(":/card_joker_theme.png").scaled(width,
 						  height,
 						  Qt::IgnoreAspectRatio,
 						  Qt::SmoothTransformation),
 	 0);
+      auto text_item = new QGraphicsTextItem();
 
       pixmap_item->setPos(width * column_index, height * row_index);
       text_item->setPos(width * column_index, height * row_index);
@@ -158,7 +159,7 @@ void joker::show(void)
 void joker::slot_queens_shuffle(void)
 {
   delete m_game;
-  m_game = new joker_game(joker_game::QUEENS_SHUFFLE);
+  m_game = new joker_game(joker_game::GameType::QUEENS_SHUFFLE);
   prepare_view();
 }
 

@@ -33,7 +33,7 @@
 class joker_card
 {
  public:
-  enum Type
+  enum class Type
   {
     ACE_CLUBS = 0,
     ACE_DIAMONDS,

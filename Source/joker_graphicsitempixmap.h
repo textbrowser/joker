@@ -35,8 +35,8 @@ class joker_graphicsitempixmap: public QGraphicsPixmapItem
 {
  public:
   joker_graphicsitempixmap(const QPixmap &pixmap,
-			   QGraphicsItem *parent):QGraphicsPixmapItem(pixmap,
-								      parent)
+			   QGraphicsItem *parent):
+    QGraphicsPixmapItem(pixmap, parent)
   {
   }
 
@@ -55,7 +55,7 @@ class joker_graphicsitempixmap: public QGraphicsPixmapItem
 
     painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
 
-    QRectF exposed_rect(option->exposedRect.adjusted(-1, -1, 1, 1));
+    auto exposed_rect(option->exposedRect.adjusted(-1, -1, 1, 1));
 
     exposed_rect &= QRectF(offset().x(), offset().y(),
 			   pixmap().width(),
@@ -66,12 +66,12 @@ class joker_graphicsitempixmap: public QGraphicsPixmapItem
     if(!(option->state & (QStyle::State_Selected | QStyle::State_HasFocus)))
       return;
 
-    const QRectF murect(painter->transform().mapRect(QRectF(0, 0, 1, 1)));
+    const auto murect(painter->transform().mapRect(QRectF(0, 0, 1, 1)));
 
     if(qFuzzyIsNull(qMax(murect.width(), murect.height())))
       return;
 
-    const QRectF mbrect(painter->transform().mapRect(boundingRect()));
+    const auto mbrect(painter->transform().mapRect(boundingRect()));
 
     if(qMin(mbrect.width(), mbrect.height()) < qreal(1.0))
       return;

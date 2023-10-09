@@ -25,6 +25,7 @@
 ** JOKER, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include <QRandomGenerator>
 #include <QTime>
 
 #include "joker_card.h"
@@ -32,60 +33,60 @@
 
 joker_deck::joker_deck(void)
 {
-  m_cards << new joker_card(joker_card::ACE_CLUBS);
-  m_cards << new joker_card(joker_card::ACE_DIAMONDS);
-  m_cards << new joker_card(joker_card::ACE_HEARTS);
-  m_cards << new joker_card(joker_card::ACE_SPADES);
-  m_cards << new joker_card(joker_card::EIGHT_CLUBS);
-  m_cards << new joker_card(joker_card::EIGHT_DIAMONDS);
-  m_cards << new joker_card(joker_card::EIGHT_HEARTS);
-  m_cards << new joker_card(joker_card::EIGHT_SPADES);
-  m_cards << new joker_card(joker_card::FIVE_CLUBS);
-  m_cards << new joker_card(joker_card::FIVE_DIAMONDS);
-  m_cards << new joker_card(joker_card::FIVE_HEARTS);
-  m_cards << new joker_card(joker_card::FIVE_SPADES);
-  m_cards << new joker_card(joker_card::FOUR_CLUBS);
-  m_cards << new joker_card(joker_card::FOUR_DIAMONDS);
-  m_cards << new joker_card(joker_card::FOUR_HEARTS);
-  m_cards << new joker_card(joker_card::FOUR_SPADES);
-  m_cards << new joker_card(joker_card::JACK_CLUBS);
-  m_cards << new joker_card(joker_card::JACK_DIAMONDS);
-  m_cards << new joker_card(joker_card::JACK_HEARTS);
-  m_cards << new joker_card(joker_card::JACK_SPADES);
-  m_cards << new joker_card(joker_card::JOKER_1);
-  m_cards << new joker_card(joker_card::JOKER_2);
-  m_cards << new joker_card(joker_card::KING_CLUBS);
-  m_cards << new joker_card(joker_card::KING_DIAMONDS);
-  m_cards << new joker_card(joker_card::KING_HEARTS);
-  m_cards << new joker_card(joker_card::KING_SPADES);
-  m_cards << new joker_card(joker_card::NINE_CLUBS);
-  m_cards << new joker_card(joker_card::NINE_DIAMONDS);
-  m_cards << new joker_card(joker_card::NINE_HEARTS);
-  m_cards << new joker_card(joker_card::NINE_SPADES);
-  m_cards << new joker_card(joker_card::QUEEN_CLUBS);
-  m_cards << new joker_card(joker_card::QUEEN_DIAMONDS);
-  m_cards << new joker_card(joker_card::QUEEN_HEARTS);
-  m_cards << new joker_card(joker_card::QUEEN_SPADES);
-  m_cards << new joker_card(joker_card::SEVEN_CLUBS);
-  m_cards << new joker_card(joker_card::SEVEN_DIAMONDS);
-  m_cards << new joker_card(joker_card::SEVEN_HEARTS);
-  m_cards << new joker_card(joker_card::SEVEN_SPADES);
-  m_cards << new joker_card(joker_card::SIX_CLUBS);
-  m_cards << new joker_card(joker_card::SIX_DIAMONDS);
-  m_cards << new joker_card(joker_card::SIX_HEARTS);
-  m_cards << new joker_card(joker_card::SIX_SPADES);
-  m_cards << new joker_card(joker_card::TEN_CLUBS);
-  m_cards << new joker_card(joker_card::TEN_DIAMONDS);
-  m_cards << new joker_card(joker_card::TEN_HEARTS);
-  m_cards << new joker_card(joker_card::TEN_SPADES);
-  m_cards << new joker_card(joker_card::THREE_CLUBS);
-  m_cards << new joker_card(joker_card::THREE_DIAMONDS);
-  m_cards << new joker_card(joker_card::THREE_HEARTS);
-  m_cards << new joker_card(joker_card::THREE_SPADES);
-  m_cards << new joker_card(joker_card::TWO_CLUBS);
-  m_cards << new joker_card(joker_card::TWO_DIAMONDS);
-  m_cards << new joker_card(joker_card::TWO_HEARTS);
-  m_cards << new joker_card(joker_card::TWO_SPADES);
+  m_cards << new joker_card(joker_card::Type::ACE_CLUBS);
+  m_cards << new joker_card(joker_card::Type::ACE_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::ACE_HEARTS);
+  m_cards << new joker_card(joker_card::Type::ACE_SPADES);
+  m_cards << new joker_card(joker_card::Type::EIGHT_CLUBS);
+  m_cards << new joker_card(joker_card::Type::EIGHT_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::EIGHT_HEARTS);
+  m_cards << new joker_card(joker_card::Type::EIGHT_SPADES);
+  m_cards << new joker_card(joker_card::Type::FIVE_CLUBS);
+  m_cards << new joker_card(joker_card::Type::FIVE_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::FIVE_HEARTS);
+  m_cards << new joker_card(joker_card::Type::FIVE_SPADES);
+  m_cards << new joker_card(joker_card::Type::FOUR_CLUBS);
+  m_cards << new joker_card(joker_card::Type::FOUR_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::FOUR_HEARTS);
+  m_cards << new joker_card(joker_card::Type::FOUR_SPADES);
+  m_cards << new joker_card(joker_card::Type::JACK_CLUBS);
+  m_cards << new joker_card(joker_card::Type::JACK_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::JACK_HEARTS);
+  m_cards << new joker_card(joker_card::Type::JACK_SPADES);
+  m_cards << new joker_card(joker_card::Type::JOKER_1);
+  m_cards << new joker_card(joker_card::Type::JOKER_2);
+  m_cards << new joker_card(joker_card::Type::KING_CLUBS);
+  m_cards << new joker_card(joker_card::Type::KING_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::KING_HEARTS);
+  m_cards << new joker_card(joker_card::Type::KING_SPADES);
+  m_cards << new joker_card(joker_card::Type::NINE_CLUBS);
+  m_cards << new joker_card(joker_card::Type::NINE_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::NINE_HEARTS);
+  m_cards << new joker_card(joker_card::Type::NINE_SPADES);
+  m_cards << new joker_card(joker_card::Type::QUEEN_CLUBS);
+  m_cards << new joker_card(joker_card::Type::QUEEN_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::QUEEN_HEARTS);
+  m_cards << new joker_card(joker_card::Type::QUEEN_SPADES);
+  m_cards << new joker_card(joker_card::Type::SEVEN_CLUBS);
+  m_cards << new joker_card(joker_card::Type::SEVEN_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::SEVEN_HEARTS);
+  m_cards << new joker_card(joker_card::Type::SEVEN_SPADES);
+  m_cards << new joker_card(joker_card::Type::SIX_CLUBS);
+  m_cards << new joker_card(joker_card::Type::SIX_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::SIX_HEARTS);
+  m_cards << new joker_card(joker_card::Type::SIX_SPADES);
+  m_cards << new joker_card(joker_card::Type::TEN_CLUBS);
+  m_cards << new joker_card(joker_card::Type::TEN_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::TEN_HEARTS);
+  m_cards << new joker_card(joker_card::Type::TEN_SPADES);
+  m_cards << new joker_card(joker_card::Type::THREE_CLUBS);
+  m_cards << new joker_card(joker_card::Type::THREE_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::THREE_HEARTS);
+  m_cards << new joker_card(joker_card::Type::THREE_SPADES);
+  m_cards << new joker_card(joker_card::Type::TWO_CLUBS);
+  m_cards << new joker_card(joker_card::Type::TWO_DIAMONDS);
+  m_cards << new joker_card(joker_card::Type::TWO_HEARTS);
+  m_cards << new joker_card(joker_card::Type::TWO_SPADES);
   shuffle();
 }
 
@@ -99,15 +100,16 @@ joker_deck::~joker_deck(void)
 
 void joker_deck::shuffle(void)
 {
-  qsrand(static_cast<uint> (QTime(0, 0, 0).secsTo(QTime::currentTime())));
+  QRandomGenerator random
+    (static_cast<quint32> (QTime(0, 0, 0).secsTo(QTime::currentTime())));
 
   for(int i = 0; i < m_cards.size(); i++)
     {
-      int index = qrand() % m_cards.size();
-      joker_card *card1 = m_cards[i];
-      joker_card *card2 = m_cards[index];
+      auto index = static_cast<int> (random.generate() % m_cards.size());
+      auto card_1 = m_cards[i];
+      auto card_2 = m_cards[index];
 
-      m_cards.replace(i, card2);
-      m_cards.replace(index, card1);
+      m_cards.replace(i, card_2);
+      m_cards.replace(index, card_1);
     }
 }

@@ -14,12 +14,22 @@ TEMPLATE	= app
 
 QMAKE_CLEAN	+= Joker
 QMAKE_CXXFLAGS_RELEASE -= -O2
-QMAKE_CXXFLAGS_RELEASE += -fPIE -fstack-protector-all -fwrapv \
-                          -mtune=generic -pie -O3 \
-                          -Wall -Wcast-align -Wcast-qual \
-                          -Werror -Wextra \
-                          -Woverloaded-virtual -Wpointer-arith \
-                          -Wstack-protector -Wstrict-overflow=5
+QMAKE_CXXFLAGS_RELEASE += -O3 \
+                          -Wall \
+                          -Wcast-align \
+                          -Wcast-qual \
+                          -Werror \
+                          -Wextra \
+                          -Woverloaded-virtual \
+                          -Wpointer-arith \
+                          -Wstack-protector \
+                          -Wstrict-overflow=5 \
+                          -fPIE \
+                          -fstack-protector-all \
+                          -fwrapv \
+                          -mtune=generic \
+                          -pie \
+                          -std=c++11
 QMAKE_DISTCLEAN += -r Include -r temp
 QMAKE_EXTRA_TARGETS = purge
 QMAKE_STRIP	= echo

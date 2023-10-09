@@ -38,7 +38,7 @@ extern "C"
 
 int main(int argc, char *argv[])
 {
-  int rc = EXIT_FAILURE;
+  int rc = static_cast<int> (EXIT_FAILURE);
 
   try
     {

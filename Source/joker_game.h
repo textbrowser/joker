@@ -33,7 +33,7 @@ class joker_deck;
 class joker_game
 {
  public:
-  enum GameType
+  enum class GameType
   {
     JOKERS_DILEMMA = 0,
     QUEENS_SHUFFLE
