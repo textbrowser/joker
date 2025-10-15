@@ -29,7 +29,7 @@ QMAKE_CXXFLAGS_RELEASE += -O3 \
                           -fwrapv \
                           -mtune=generic \
                           -pie \
-                          -std=c++11
+                          -std=c++17
 QMAKE_DISTCLEAN += -r Include -r temp
 QMAKE_EXTRA_TARGETS = purge
 QMAKE_STRIP	= echo
